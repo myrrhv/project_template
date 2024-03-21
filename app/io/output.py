@@ -5,7 +5,7 @@ def output_to_console(text):
     Параметри:
         text (str): Текст, який потрібно вивести у консоль.
     """
-    pass
+    print(text)
 
 
 def write_to_file_builtin(file_path, content):
@@ -16,6 +16,7 @@ def write_to_file_builtin(file_path, content):
         file_path (str): Шлях до файлу, в який потрібно записати.
         content (str): Вміст, який потрібно записати до файлу.
     """
-    pass
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(content)
 
 

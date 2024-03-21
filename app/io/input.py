@@ -4,7 +4,8 @@ def input_from_console():
     """
     Функція для вводу тексту з консолі.
     """
-    pass
+    text = input("Введіть текст: ")
+    return text
 
 
 def read_from_file_builtin(file_path):
@@ -14,7 +15,13 @@ def read_from_file_builtin(file_path):
     Параметри:
         file_path (str): Шлях до файлу, який потрібно прочитати.
     """
-    pass
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+        return content
+    except FileNotFoundError:
+        print(f"Файл '{file_path}' не знайдено.")
+        return None
 
 
 def read_from_file_with_pandas(file_path):
@@ -24,5 +31,10 @@ def read_from_file_with_pandas(file_path):
     Параметри:
         file_path (str): Шлях до файлу, який потрібно прочитати.
     """
-    pass
+    try:
+        df = pd.read_csv(file_path)
+        return df.to_string(index=False)
+    except FileNotFoundError:
+        print(f"Файл '{file_path}' не знайдено.")
+        return None
 
